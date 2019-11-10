@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Practical2">
+
+    <ImageView
+        android:id="@+id/imgViewToggle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView"
+        tools:srcCompat="@drawable/dog" />
+
+    <EditText
+        android:id="@+id/editTextStock"
+        android:layout_width="196dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="22dp"
+        android:clickable="false"
+        android:editable="false"
+        android:importantForAutofill="no"
+        app:layout_constraintBottom_toTopOf="@+id/imgViewToggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtView"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerItems"
+        app:layout_constraintVertical_bias="0.96">
+
+    </EditText>
+
+    <ImageButton
+        android:id="@+id/imgBtnToggle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="36dp"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toTopOf="@+id/txtView"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/slowpoke" />
+
+    <Spinner
+        android:id="@+id/spinnerItems"
+        android:layout_width="130dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="44dp"
+        android:entries="@array/items"
+        app:layout_constraintBottom_toTopOf="@+id/txtView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgBtnToggle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtView"
+        android:layout_width="114dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="27dp"
+        android:text="Stock:"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgViewToggle"
+        app:layout_constraintEnd_toStartOf="@+id/editTextStock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtnToggle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

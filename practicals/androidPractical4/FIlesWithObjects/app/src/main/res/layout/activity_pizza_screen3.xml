@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_pizza_screen3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_margin="16dp"
+
+
+    <Button
+        android:id="@+id/buttonOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonUpdate"
+        android:layout_gravity="top"
+        android:layout_marginBottom="-150dp"
+        android:onClick="openFile"
+        android:text="@string/file_open"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUpdate" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="224dp"
+        android:text="@string/first_name"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonOpen" />
+
+    <Button
+        android:id="@+id/calc_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+         android:onClick="exitApp"
+        android:text="Exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="207dp"
+        android:text="@string/last_name"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonOpen"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:id="@+id/buttonUpdate"
+        android:layout_width="92dp"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="right|center"
+        android:layout_marginTop="150dp"
+        android:onClick="updateFile"
+        android:text="@string/file_update"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSave" />
+
+
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonOpen"
+        android:layout_gravity="center|top"
+        android:onClick="saveFile"
+        android:text="@string/file_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/editTextFname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+
+        android:ems="10"
+        android:inputType="textPersonName"   />
+
+    <EditText
+        android:id="@+id/editTextLastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextOrders"
+
+        android:text="@string/orders"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52" />
+
+    <EditText
+        android:id="@+id/editTextOrders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/editTextFname"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+    <Button
+        android:id="@+id/btn_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextLastname"
+        android:layout_alignRight="@+id/editTextLastname"
+        android:layout_marginEnd="-96dp"
+        android:layout_marginRight="-96dp"
+        android:text="list " />
+
+
+</RelativeLayout>

@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Practical3</string>
+    <string name="title">JJ\'s Furniture</string>
+
+    <string-array name="images">
+        <item>@drawable/icon</item>
+    </string-array>
+
+    <string-array name="items_available">
+        <item>Chair</item>
+        <item>Table</item>
+        <item>Shelf</item>
+        <item>Bed</item>
+    </string-array>
+
+    <string-array name="items_prices">
+        <item>$100</item>
+        <item>$10</item>
+        <item>$15</item>
+        <item>$4000</item>
+    </string-array>
+
+    <string-array name="extras">
+        <item>Screws</item>
+        <item>Nails</item>
+        <item>Tape</item>
+        <item>Knobs</item>
+    </string-array>
+
+    <string-array name="items_description">
+        <item>Sturdy Chair</item>
+        <item>Broad, Flat table</item>
+        <item>Bookshelf for books</item>
+        <item>Bed for sleeping</item>
+    </string-array>
+
+    <string-array name="items_images">
+        <item>@drawable/chair</item>
+        <item>@drawable/table</item>
+        <item>@drawable/shelf</item>
+        <item>@drawable/bed</item>
+    </string-array>
+
+    <integer-array name="prices">
+        <item>100</item>
+        <item>10</item>
+        <item>15</item>
+        <item>4000</item>
+    </integer-array>
+
+</resources>

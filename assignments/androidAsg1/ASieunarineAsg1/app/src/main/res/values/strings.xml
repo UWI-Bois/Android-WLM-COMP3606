@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">ASieunarineAsg1</string>
+    <string name="action_settings">Settings</string>
+    <string name="toy_catalog">Toy Catalog</string>
+    <string name="view_cart">View Cart</string>
+    <string name="view_catalog">View Toys</string>
+    <string name="toys_list">Toys List</string>
+    <string name="imgView">stockImg</string>
+    <string name="title_activity_toys">Toy Catalog</string>
+    <string name="title_activity_toy_detail">ToyDetailActivity</string>
+    <string name="title_activity_cart">Your Cart</string>
+    <string name="toy_name">Toy Name</string>
+    <string name="toy_description">Toy Description</string>
+    <string name="toy_images">toy images</string>
+    <string name="price">price</string>
+    <string name="add_to_cart">Add to Cart</string>
+
+    <string-array name="toys_list">
+        <item>Play-Doh</item>
+        <item>Megablocks</item>
+        <item>Toy Soldiers</item>
+        <item>G.I. Joe Action Figure</item>
+    </string-array>
+
+    <string-array name="toys_description">
+        <item>Moldable play dough. Kid friendly.</item>
+        <item>Fancy legos.</item>
+        <item>Set of Toy Soldiers. Perfect birthday gift.</item>
+        <item>Action Figure.</item>
+    </string-array>
+
+    <string-array name="toys_images">
+        <item>@drawable/playdoh</item>
+        <item>@drawable/megablocks</item>
+        <item>@drawable/toy_soldiers</item>
+        <item>@drawable/gijoe</item>
+    </string-array>
+
+    <integer-array name="toys_prices">
+        <item>50</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+    </integer-array>
+
+    <string-array name="string_prices">
+        <item>$50</item>
+        <item>$100</item>
+        <item>$150</item>
+        <item>$200</item>
+    </string-array>
+
+
+</resources>

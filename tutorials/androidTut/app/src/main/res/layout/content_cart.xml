@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".CartActivity"
+    tools:layout_editor_absoluteY="56dp"
+    tools:showIn="@layout/activity_cart">
+
+    <!--    <ListView-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:id="@+id/cart_list"-->
+    <!--        />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/fab_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".CartActivity"
+        tools:showIn="@layout/activity_items">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/your_cart"
+            android:textSize="24sp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/main_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/things">
+
+        </android.support.v7.widget.AppCompatImageView>
+
+        <ListView
+            android:id="@+id/cart_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

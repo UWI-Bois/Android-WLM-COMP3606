@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".RadioButtons"
+    tools:showIn="@layout/activity_radio_buttons">
+
+
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView1"
+        android:layout_below="@+id/checkBox"
+        android:layout_toLeftOf="@+id/EditText02"
+        android:layout_toStartOf="@+id/EditText02"
+        android:layout_gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="New RadioButton" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="New RadioButton 2" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="361dp"
+            android:layout_height="29dp"
+            android:onClick="onClick"
+            android:text="textView1">
+
+        </TextView>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:text="checkBox">
+
+        </CheckBox>
+
+        <EditText
+            android:id="@+id/EditText02"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="EditText02">
+
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="133dp"
+            android:layout_height="115dp"
+            android:onClick="onClick"
+            tools:src="@tools:sample/avatars"></ImageButton>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="264dp"
+            android:layout_height="206dp"></ImageView>
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="268dp"
+            android:layout_height="50dp"
+            android:entries="@array/books"></Spinner>
+
+    </RadioGroup>
+
+</LinearLayout>

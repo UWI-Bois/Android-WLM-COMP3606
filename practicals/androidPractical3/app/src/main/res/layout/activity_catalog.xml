@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Catalog">
+
+
+    <TextView
+        android:id="@+id/textView_title"
+        android:layout_width="140dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="261dp"
+        android:layout_marginRight="261dp"
+        android:layout_marginBottom="668dp"
+        android:text="Catalog"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_shelf"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="365dp"
+        android:layout_marginEnd="301dp"
+        android:layout_marginRight="301dp"
+        android:layout_marginBottom="266dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shelf" />
+
+    <TextView
+        android:id="@+id/textView_shelfName"
+        android:layout_width="127dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="381dp"
+        android:layout_marginBottom="325dp"
+        android:text="name "
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_shelf"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox_shelf"
+        android:layout_width="31dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="433dp"
+        android:layout_marginBottom="269dp"
+        android:onClick="checkBox"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_shelfPrice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_shelfDesc"
+        android:layout_width="113dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="411dp"
+        android:layout_marginBottom="298dp"
+        android:text="desc "
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_shelf"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_shelfPrice"
+        android:layout_width="64dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginBottom="271dp"
+        android:text="price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView_shelfDesc"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_chair"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="127dp"
+        android:layout_marginEnd="301dp"
+        android:layout_marginRight="301dp"
+        android:layout_marginBottom="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chair" />
+
+    <TextView
+        android:id="@+id/textView_chairName"
+        android:layout_width="152dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginBottom="556dp"
+        android:text="name "
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView_chairPrice"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView_chairDesc"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_chairPrice"
+        android:layout_width="94dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="207dp"
+        android:layout_marginRight="207dp"
+        android:layout_marginBottom="511dp"
+        android:text="price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_chair"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_bed"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="486dp"
+        android:layout_marginEnd="301dp"
+        android:layout_marginRight="301dp"
+        android:layout_marginBottom="145dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bed" />
+
+    <TextView
+        android:id="@+id/textView_bedName"
+        android:layout_width="54dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="501dp"
+        android:layout_marginBottom="210dp"
+        android:text="name "
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_bed"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox_bed"
+        android:layout_width="31dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="552dp"
+        android:layout_marginBottom="151dp"
+        android:onClick="checkBox"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_bedPrice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_bedPrice"
+        android:layout_width="74dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="556dp"
+        android:layout_marginBottom="150dp"
+        android:text="price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_bed"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_bedDesc"
+        android:layout_width="111dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="521dp"
+        android:layout_marginBottom="184dp"
+        android:text="desc "
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_bed"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_hadGoodDay"
+        android:layout_width="390dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="613dp"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="please go back to the first page and tell me about your day"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_chairDesc"
+        android:layout_width="156dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="531dp"
+        android:text="desc "
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView_chairPrice"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView_chair"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_table"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="243dp"
+        android:layout_marginEnd="301dp"
+        android:layout_marginRight="301dp"
+        android:layout_marginBottom="388dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/table" />
+
+    <TextView
+        android:id="@+id/textView_tableName"
+        android:layout_width="84dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="258dp"
+        android:layout_marginEnd="217dp"
+        android:layout_marginRight="217dp"
+        android:layout_marginBottom="443dp"
+        android:text="name "
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox_table"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="182dp"
+        android:layout_marginLeft="182dp"
+        android:layout_marginTop="316dp"
+        android:layout_marginEnd="202dp"
+        android:layout_marginRight="202dp"
+        android:layout_marginBottom="388dp"
+        android:onClick="checkBox"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_tablePrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_tablePrice"
+        android:layout_width="72dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="315dp"
+        android:layout_marginEnd="229dp"
+        android:layout_marginRight="229dp"
+        android:layout_marginBottom="396dp"
+        android:text="price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_table"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_tableDesc"
+        android:layout_width="150dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginRight="151dp"
+        android:layout_marginBottom="416dp"
+        android:text="desc "
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_table"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="291dp"
+        android:layout_marginLeft="291dp"
+        android:layout_marginTop="597dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="86dp"
+        android:onClick="viewCart"
+        android:text="View Cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox_chair"
+        android:layout_width="30dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="508dp"
+        android:onClick="checkBox"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_chairPrice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtView_hadGoodDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="154dp"
+        android:layout_marginRight="154dp"
+        android:layout_marginBottom="649dp"
+        android:text="checking to see if you had a good day:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="69dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="641dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginRight="244dp"
+        android:layout_marginBottom="51dp"
+        android:text="Total: "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/txtV_total"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="167dp"
+        android:layout_marginLeft="167dp"
+        android:layout_marginTop="640dp"
+        android:layout_marginEnd="173dp"
+        android:layout_marginRight="173dp"
+        android:layout_marginBottom="52dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="640dp"
+        android:layout_marginBottom="43dp"
+        android:onClick="getTotal"
+        android:text="get total"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginLeft="293dp"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="411dp"
+        android:onClick="viewBonus"
+        android:text="Bonus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

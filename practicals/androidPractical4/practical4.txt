@@ -1,0 +1,17 @@
+
+Practical 4
+COMP3606
+
+PRACTICAL 4
+
+Examine the Files and Objects code on My Elearning
+
+1. Add and ID field for each customer (unique integer) and make sure the data (with IDs) is written to the file.
+2. Display all the data written to the file and all the data retrieved from the file. // listview?
+3. Accept an ID (integer) and a value "updateAmt" and locate the customer in the file. Add "updateAmt" to his/her orders. 
+If not found, print a message.
+
+4. Print the file data to ensure that it was updated.
+
+
+Last modified: Monday, 28 October 2019, 7:21 PM

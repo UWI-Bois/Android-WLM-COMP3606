@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_comp3275_main"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.firstapp2019v2.MainActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/hello_world"
+        android:id="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1"
+        android:layout_marginBottom="183dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="No of Bags" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_marginTop="52dp"
+        android:text="Price per bag"
+        android:layout_alignTop="@+id/editText1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Total Cost"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView1"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignTop="@+id/editText1"
+        android:layout_alignEnd="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EditText01"
+        android:layout_alignStart="@+id/EditText01"
+        android:layout_alignLeft="@+id/EditText01"
+        android:layout_alignEnd="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_toEndOf="@+id/EditText01"
+        android:layout_toRightOf="@+id/EditText01"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/EditText03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EditText02"
+        android:layout_alignStart="@+id/EditText02"
+        android:layout_alignLeft="@+id/EditText02"
+        android:layout_alignEnd="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_toEndOf="@+id/EditText02"
+        android:layout_toRightOf="@+id/EditText02"
+        android:clickable="false"
+        android:editable="false" />
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/course_array"
+        android:prompt="@string/course_prompt" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:id="@+id/button1"
+        android:layout_below="@+id/editText3"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Try ImageView"
+        android:id="@+id/button2"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:text="CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/checkBox" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView1"
+        android:layout_below="@+id/checkBox"
+        android:layout_toLeftOf="@+id/EditText02"
+        android:layout_toStartOf="@+id/EditText02"
+        android:layout_gravity="center">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New RadioButton"
+            android:id="@+id/radioButton" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New RadioButton"
+            android:id="@+id/radioButton2" />
+    </RadioGroup>
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox"
+        android:src="@drawable/android_image" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="278dp"
+        android:layout_marginLeft="278dp"
+        android:layout_marginTop="509dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/picture1" />
+
+    <Button
+        android:id="@+id/btnViewPractical2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="206dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:onClick="viewPractical2"
+        android:text="Practical 2" />
+
+
+</RelativeLayout>
+
+
+
+
+

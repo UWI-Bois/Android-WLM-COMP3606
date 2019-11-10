@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Main Activity for Files Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_pizza_screen2">PizzaScreen2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="pizza_screen_2str">Pizza Screen 2</string>
+    <string name="title_activity_pizza_screen3">PizzaScreen3Activity</string>
+    <string name="pizza_screen_3str">Go to Screen 3</string>
+    <string name="file_save">Save File</string>
+    <string name="file_open">OPEN FILE</string>
+    <string name="title_activity_list_view_android_example">ListViewAndroidExample</string>
+    <string name="title_activity_list_display">ListDisplayActivity</string>
+    <string name="file_update">Update File</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="orders">Orders</string>
+
+</resources>

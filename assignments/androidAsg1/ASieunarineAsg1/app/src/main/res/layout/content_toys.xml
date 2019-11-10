@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ToysActivity"
+    tools:showIn="@layout/activity_toys">
+
+    <TextView
+        android:id="@+id/txtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="29dp"
+        android:text="@string/toys_list"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="192dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="384dp"
+        android:contentDescription="@string/imgView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        tools:srcCompat="@tools:sample/avatars[5]" />
+
+    <ListView
+        android:id="@+id/toysListView"
+        android:layout_width="322dp"
+        android:layout_height="299dp"
+        android:layout_marginBottom="47dp"
+        android:entries="@array/toys_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView"
+        app:layout_constraintVertical_bias="0.89" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
