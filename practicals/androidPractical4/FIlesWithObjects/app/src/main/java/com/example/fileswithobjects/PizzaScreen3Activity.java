@@ -8,10 +8,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -19,20 +26,34 @@ import java.util.ArrayList;
 
 public class PizzaScreen3Activity extends Activity {
     private ArrayList<Person> persons;
-    private static final int SIZE = 5;
+    private ArrayList<Person> personsData;
+    private int SIZE;
     private static final String FILENAME = "customer_file2";
     private Button buttonOpen, buttonSave, buttonUpdate, btnLV;
     private EditText fname, lname, newOrders;
+    private ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pizza_screen3);
 
-        persons = new ArrayList<>();
+        persons = new ArrayList<>(); // data to write to the file
+        personsData = new ArrayList<>(); // data taken from the file
+        lv = findViewById(R.id.list);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = lv.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         buttonOpen = (Button) findViewById(R.id.buttonOpen);
+        buttonOpen.setOnClickListener(new Button_Clicker());
         buttonSave = (Button) findViewById(R.id.buttonSave);
+        buttonSave.setOnClickListener(new Button_Clicker());
         buttonUpdate= (Button) findViewById(R.id.buttonUpdate);
+        buttonUpdate.setOnClickListener(new Button_Clicker());
         fname = (EditText) findViewById(R.id.editTextFname);
         lname = (EditText) findViewById(R.id.editTextLastname);
         newOrders = (EditText) findViewById(R.id.editTextOrders);
@@ -64,32 +85,29 @@ public class PizzaScreen3Activity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void exitApp (View v) {
+    public void exitApp () {
         finish();
     }
-    public void saveFile (View view) {
-        //Do an Intent to activate Screen 3
-        int size = 4; //4 customers
+    public void saveFile () {
         buttonSave.setText("Saving File...");
-        String string = "test";
 
         persons.add(new Person("Bill", "Smith", 20) );
         persons.add(new Person("Fred", "Bloggs", 30) );
         persons.add(new Person("Joe", "Phillips", 40) );
         persons.add(new Person("Ria", "Maharaj", 50) );
-        persons.add(null);
+        persons.add(null); // to determine eof
 
         Log.d("MyApp", "Data loaded in array. Printing from array....");
         printFromArray(persons);
         Log.d("MyApp", "Attempting to write to file....");
         //Person per = new Person(fName, lName, ord); //create Person object
         try {
-            FileOutputStream fout;
+            FileOutputStream fout; // write bytes to a file (from obj in this case)
             fout = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            ObjectOutputStream oos = new ObjectOutputStream(fout); // object stream to write an object to the file in bytes
             for (Person p :
                     persons) {
-                oos.writeObject(p);
+                oos.writeObject(p); // write to file
             }
             oos.close();
             System.out.println("Finished writing person objects to file " + FILENAME);
@@ -100,43 +118,45 @@ public class PizzaScreen3Activity extends Activity {
 
 
         Log.d("MyApp", "File write successful.");
+        Toast.makeText(this, "Saved File! el: " + persons.size(), Toast.LENGTH_SHORT).show();
+        buttonSave.setText("Save File");
     }
 
     public void printFromArray (ArrayList<Person> p) {
+        // print an arraylist of persons
         for (Person i :
                 p) {
             if(i != null)
                 System.out.println("\n" + i.toString());
+            else System.out.println("null, eof?");
         }
     }
 
-    public void openFile (View view) {
-        //Do an Intent to activate Screen 3
-        buttonOpen.setText("Opening File...");
-        FileInputStream inputStream;
-        ArrayList<Person> p = new ArrayList<>();
-        try {
-            inputStream = openFileInput(FILENAME);
-             //
-            Log.d("MyApp", "Opened the file.");
-            ObjectInputStream ois = new ObjectInputStream(inputStream);
-            Person temp = (Person) ois.readObject();
+    public void openFile () {
+        // grab the data from the file and store it in personsData
+        FileInputStream inputStream; // for reading streams of byte data
+        try{
+            inputStream = openFileInput(FILENAME); // open file to read from
+            Log.d("MyApp", "getting persons from file for list!!");
+            ObjectInputStream ois = new ObjectInputStream(inputStream); // for reading objects from the file
+            Person temp; // temp person obj for reading file
+            temp = (Person)ois.readObject();
             while(temp != null){
-                p.add(temp);
-                temp = (Person) ois.readObject();
+                personsData.add(temp);
+                temp = (Person)ois.readObject();
             }
-             ois.close();
-             }catch(Exception ex){
-                  ex.printStackTrace();
-             }
-        Log.d("MyApp", "Loaded the array from the file.");
-        Log.d("MyApp", "Printing the array contents.");
-        printFromArray (p);
-
-       // return peopleList;
+            ois.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        // we should now have personsData without null at the end
+        Log.d("MyApp" ,"got persons[]");
+        for(Person p: personsData){
+            Log.d("MyApp", p.toString());
+        }
     }
 
-    public void updateFile (View view) {
+    public void updateFile () {
         Log.d("MyApp", "Attempting to update to file....");
         buttonOpen.setText("Opening File...");
         String string;
@@ -196,10 +216,44 @@ public class PizzaScreen3Activity extends Activity {
         @Override
         public void onClick(View v) {
             if (v == btnLV){
-                Intent i = new Intent(getApplicationContext(), ListActivity.class);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(), ListActivity.class);
+//                startActivity(i);
+                initList();
             }
+            if(v == buttonOpen) openFile();
+            if(v == buttonSave) saveFile();
+            if(v == buttonUpdate) updateFile();
         }
+
+    }
+
+    private void initList() {
+        System.out.println("initing List");
+        SIZE = personsData.size(); // account for the end of list
+        if(SIZE <= 0){
+            Toast.makeText(this, "Array Empty! try opening file!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        int i = 0;
+        String[] s = new String[SIZE];
+        for (Person p :
+                persons) {
+            if(p != null){
+                try {
+                    s[i] = p.toString();
+                    System.out.println(s[i]);
+                    i++;
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            else break;
+
+        }
+
+        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, s);
+        lv.setAdapter(adapter);
 
     }
 
