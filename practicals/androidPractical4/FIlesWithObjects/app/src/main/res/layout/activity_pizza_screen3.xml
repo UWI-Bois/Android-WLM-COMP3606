@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:orientation="vertical">
+    android:paddingRight="16dp">
     android:layout_margin="16dp"
 
 
@@ -39,40 +38,35 @@
         android:id="@+id/editTextFname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/first_name"
-        tools:text="@string/first_name" />
+        android:text="@string/first_name"/>
 
     <EditText
         android:id="@+id/editID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_below="@+id/editTextOrders"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="ID "
-        tools:text="ID" />
+        android:inputType="number"
+        android:text="ID " />
 
     <EditText
         android:id="@+id/editTextLastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="@string/last_name"
         tools:text="@string/last_name" />
 
     <EditText
         android:id="@+id/editTextOrders"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:text="@string/orders"
         tools:text="@string/orders" />
 

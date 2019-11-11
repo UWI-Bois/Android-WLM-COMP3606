@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +31,7 @@ public class PizzaScreen3Activity extends Activity {
     private int SIZE;
     private static final String FILENAME = "customer_file2";
     private Button buttonOpen, buttonSave, buttonUpdate, btnLV;
-    private EditText fname, lname, newOrders;
+    private EditText fname, lname, newOrders, ID;
     private ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,11 @@ public class PizzaScreen3Activity extends Activity {
 
         persons = new ArrayList<>(); // data to write to the file
         personsData = new ArrayList<>(); // data taken from the file
+
+        initStuff();
+    }
+
+    public void initStuff(){
         lv = findViewById(R.id.list);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -57,11 +63,20 @@ public class PizzaScreen3Activity extends Activity {
         fname = (EditText) findViewById(R.id.editTextFname);
         lname = (EditText) findViewById(R.id.editTextLastname);
         newOrders = (EditText) findViewById(R.id.editTextOrders);
+        ID = (EditText) findViewById(R.id.editID);
 
         btnLV = findViewById(R.id.btn_lv);
         btnLV.setOnClickListener(new Button_Clicker());
 
-        // buttonExit = (Button) findViewById(R.id.buttonExit);
+        fname.setOnClickListener(new EditText_Clicker());
+        lname.setOnClickListener(new EditText_Clicker());
+        ID.setOnClickListener(new EditText_Clicker());
+        newOrders.setOnClickListener(new EditText_Clicker());
+//
+//        fname.setFocusableInTouchMode();
+//        lname.setFocusableInTouchMode(false);
+//        ID.setFocusableInTouchMode(false);
+//        newOrders.setFocusableInTouchMode(false);
 
     }
 
@@ -95,6 +110,7 @@ public class PizzaScreen3Activity extends Activity {
         persons.add(new Person("Fred", "Bloggs", 30) );
         persons.add(new Person("Joe", "Phillips", 40) );
         persons.add(new Person("Ria", "Maharaj", 50) );
+        persons.add(new Person("Jo", "Jo", 10) );
         persons.add(null); // to determine eof
 
         Log.d("MyApp", "Data loaded in array. Printing from array....");
@@ -134,6 +150,8 @@ public class PizzaScreen3Activity extends Activity {
 
     public void openFile () {
         // grab the data from the file and store it in personsData
+        if(persons.size() <= 0) saveFile();
+        if(persons.size() <= 0) return;
         FileInputStream inputStream; // for reading streams of byte data
         try{
             inputStream = openFileInput(FILENAME); // open file to read from
@@ -157,57 +175,61 @@ public class PizzaScreen3Activity extends Activity {
     }
 
     public void updateFile () {
-        Log.d("MyApp", "Attempting to update to file....");
-        buttonOpen.setText("Opening File...");
-        String string;
-        FileInputStream inputStream;
-        //
-        Person peopleList[] = new Person [SIZE];
-        try {
-            inputStream = openFileInput(FILENAME);
-            //
-            Log.d("MyApp", "Opened the file.");
-            ObjectInputStream ois = new ObjectInputStream(inputStream);
-            for (int j = 0; j < SIZE; j++) {
-                Person tempP = (Person) ois.readObject();
-                peopleList[j] = tempP;
-            }
-            ois.close();
-        }catch(Exception ex){
-            ex.printStackTrace();
+        // TODO: 10-Nov-19 dapowdklopaw 
+        // Required: ID, orders (this amount will be added to the existing amount for that person
+        // run openFile(), then saveFile() - populate persons and personsData
+        // navigate through each person and check look for the id - p.getID() == id
+        // if found, increment order amount
+        // else print toast error and return
+        String reg = "^[a-zA-z]*$";
+        if(persons.size() <= 0) saveFile();
+        if(persons.size() <= 0){
+            Toast.makeText(this, "error in updating, no persons found!!, plase check saveFile()", Toast.LENGTH_SHORT).show();
+            return;
         }
-        Log.d("MyApp", "Loaded the array from the file.");
-        Log.d("MyApp", "Printing the array contents.");
-//        printFromArray (peopleList, SIZE);
+        if(personsData.size() <= 0) openFile();
 
-        boolean updated = false;
-        //Try to update record;
-
-        for (int j = 0; j < SIZE; j++) {
-            if (peopleList[j].getFirstName().equals(fname.getText().toString()) && peopleList[j].getLastName().equals(lname.getText().toString())) {
-                peopleList[j].updateOrders(Integer.parseInt(newOrders.getText().toString()));
-                Log.d("MyApp", "Record was updated in the array " + peopleList[j].getLastName());
-                updated = true;
-            }
-
+        String idStr, orderStr;
+        idStr = ID.getText().toString();
+        orderStr = newOrders.getText().toString();
+        if(idStr == null || idStr.matches(reg)){
+            Toast.makeText(this, "invalid id", Toast.LENGTH_SHORT).show();
+            return;
         }
-        //Only if a record was updated, should the file be rewritten
-        if (updated) {
-            Log.d("MyApp", "Printing the UPDATED array contents.");
-//            printFromArray (peopleList, SIZE);
-            Log.d("MyApp", "Attempting to update file with changes....");
-            try {
-                FileOutputStream fout;
-                fout = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-                ObjectOutputStream oos = new ObjectOutputStream(fout);
-                for (int j = 0; j < SIZE; j++)
-                    oos.writeObject(peopleList[j]);
-                oos.close();
-                System.out.println("Finished writing person objects to file " + FILENAME);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if(orderStr == null || orderStr.matches(reg)){
+            Toast.makeText(this, "invalid order amount", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int id = Integer.parseInt(idStr);
+        int orders = Integer.parseInt(orderStr);
+
+        // at this point we have the personsData and valid numbers for ID and Orders
+
+
+    }
+
+    class EditText_Clicker implements EditText.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            if(v == ID){
+                Toast.makeText(PizzaScreen3Activity.this, "inside id click listener", Toast.LENGTH_SHORT).show();
+                ID.setText("");
+                ID.setInputType(InputType.TYPE_CLASS_NUMBER);
             }
-            Log.d("MyApp", "Finished attempting write changes to file...");
+            if(v == newOrders){
+                newOrders.setText("");
+                newOrders.setInputType(InputType.TYPE_CLASS_NUMBER);
+            }
+            if(v == fname){
+                fname.setText("");
+                fname.setInputType(InputType.TYPE_CLASS_TEXT);
+            }
+            if(v == lname){
+                lname.setText("");
+                lname.setInputType(InputType.TYPE_CLASS_TEXT);
+            }
         }
     }
 
