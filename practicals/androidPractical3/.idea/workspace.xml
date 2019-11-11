@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e709119-3152-4806-b11c-813abba948b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/java/com/example/fileswithobjects/ListActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/java/com/example/fileswithobjects/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/java/com/example/fileswithobjects/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/java/com/example/fileswithobjects/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/java/com/example/fileswithobjects/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/java/com/example/fileswithobjects/PizzaScreen3Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/java/com/example/fileswithobjects/PizzaScreen3Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/res/layout/activity_list2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/res/layout/activity_pizza_screen3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../androidPractical4/FIlesWithObjects/app/src/main/res/layout/activity_pizza_screen3.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
