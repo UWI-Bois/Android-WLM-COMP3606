@@ -59,7 +59,8 @@ public class MainActivity extends Activity {
                 Log.d("MyApp","I am here");
             }
             else if (v == btnLV){
-                Intent i = new Intent(getApplicationContext(), List.class);
+                Intent i = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(i);
             }
             else if(v == myButton2)
             {   //Do an Intent to activate Screen 3

@@ -10,8 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -94,7 +92,7 @@ public class PizzaScreen3Activity extends Activity {
                 oos.writeObject(p);
             }
             oos.close();
-            System.out.println("Finished writing person objects to file ' + FILENAME");
+            System.out.println("Finished writing person objects to file " + FILENAME);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -107,7 +105,8 @@ public class PizzaScreen3Activity extends Activity {
     public void printFromArray (ArrayList<Person> p) {
         for (Person i :
                 p) {
-            System.out.println(p.toString());
+            if(i != null)
+                System.out.println("\n" + i.toString());
         }
     }
 
@@ -191,16 +190,20 @@ public class PizzaScreen3Activity extends Activity {
             Log.d("MyApp", "Finished attempting write changes to file...");
         }
     }
+
     class Button_Clicker implements Button.OnClickListener
     {
         @Override
         public void onClick(View v) {
             if (v == btnLV){
-                Intent i = new Intent(getApplicationContext(), List.class);
+                Intent i = new Intent(getApplicationContext(), ListActivity.class);
                 startActivity(i);
             }
         }
+
     }
+
+
 }
 /*
 03-15 12:04:15.196    1571-1583/example.com.userinterface11 I/art﹕ Background sticky concurrent mark sweep GC freed 6494(290KB) AllocSpace objects, 0(0B) LOS objects, 16% free, 2MB/2MB, paused 1.130ms total 201.273ms
