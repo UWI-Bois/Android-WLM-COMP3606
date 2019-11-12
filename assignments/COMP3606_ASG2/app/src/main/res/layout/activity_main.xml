@@ -6,13 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btn_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intro to Android" />
+
+        <Button
+            android:id="@+id/btn_gui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GUI Components" />
+
+        <Button
+            android:id="@+id/btn_quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz" />
+
+        <Button
+            android:id="@+id/btn_intentsCallback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intents CallBack" />
+
+        <Button
+            android:id="@+id/btn_paper1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paper 1" />
+
+        <Button
+            android:id="@+id/btn_paper2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paper 2" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

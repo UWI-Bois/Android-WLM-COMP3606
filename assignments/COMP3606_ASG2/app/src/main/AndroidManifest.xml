@@ -9,6 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".GUI_NumberPicker"></activity>
+        <activity android:name=".GUI_Button" />
+        <activity android:name=".GUI_EditText" />
+        <activity android:name=".GUI_Spinner" />
+        <activity android:name=".GUI_ListView" />
+        <activity android:name=".GUI_ImageView" />
+        <activity android:name=".GUI_DatePicker" />
+        <activity android:name=".GUI_Toast" />
+        <activity android:name=".Paper2" />
+        <activity android:name=".Paper1" />
+        <activity android:name=".IntentsCallback" />
+        <activity android:name=".Quiz" />
+        <activity android:name=".GUI" />
+        <activity android:name=".AndroidIntro" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

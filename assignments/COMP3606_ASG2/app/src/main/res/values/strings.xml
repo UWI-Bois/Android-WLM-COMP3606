@@ -1,3 +1,140 @@
 <resources>
     <string name="app_name">COMP3606_ASG2</string>
+
+    <string name="introduction_to_android">Intro to Android</string>
+    <string name="gui_components">GUI Components</string>
+    <string name="paper_2">Paper 2</string>
+    <string name="paper_1">Paper 1</string>
+    <string name="intents_callback">Intents Callback</string>
+    <string name="quiz">Quiz</string>
+    <string name="android_desc">\n\nAndroid is a <i>Linux-based, open-source operating system</i>, meaning that it is free for anyone to use. Android development also fully supports Java. Some types of devices that Android runs on are: \n\n
+            <li><b>Watches</b></li> \n
+            <li><b>Smart Glasses</b></li> \n
+            <li><b>Phones</b></li> \n
+            <li><b>Tablets</b></li> \n
+            <li><b>Televisions</b></li> \n
+    </string>
+
+
+    <string name="toast">Toast</string>
+    <string name="numberpicker">NumberPicker</string>
+    <string name="edittext">EditText</string>
+    <string name="listview">ListView</string>
+    <string name="datepicker">DatePicker</string>
+    <string name="button">Button</string>
+    <string name="spinner">Spinner</string>
+    <string name="imageview">ImageView</string>
+
+    <string name="toast_desc">A <b>toast</b> provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.
+    \n\n<b>How to Make a Toast</b>\n\n
+    Context context = getApplicationContext();\n
+    CharSequence text = \"Hello toast!\";\n
+    int duration = Toast.LENGTH_SHORT;\n\n
+    Toast toast = Toast.makeText(context, text, duration);\n
+    toast.show();\n
+    </string>
+
+
+    <string name="title_activity_datepicker">datepickerAct</string>
+    <string name="datepicker_desc">A <b>DatePicker</b> is a level 1 Android API that presents a widget to select a date. The API can be set to use a Spinner or Calendar in <i>R.styleable.DatePicker_datePickerMode</i>.
+        \n\nSome methods available for use with the DatePicker API are:
+        \n<li><b>getCalendarView()</b></li>
+        \n<li><b>getMaxDate()</b></li>
+        \n<li><b>getYear()</b></li>
+        \n<li><b>updateDate()</b></li></string>
+
+    <string name="imageview_desc"><b>ImageView</b> is a level 1 API that allows image resources to be displayed such as Bitmap or Drawable resources. You can also apply tints to an image and handle image scaling.
+    \n\nSome API methods are:
+        \n<li><b>getAdjustViewBounds()</b></li>
+        \n<li><b>getDrawable()</b></li>
+        \n<li><b>getImageTintMode()</b></li>
+        \n<li><b>setAlpha()</b></li>
+        \n<li><b>setCropToPadding()</b></li></string>
+
+    <string name="listview_desc">A <b>ListView</b> is a level 1 API that displays a vertically-scrollable collection of views, where each view is positioned immediately below the revious view in the list. The list items are automatically inserted to the list using an Adapter that pulls content from a source such as an array or database.
+    \n\nSome API methods are:
+    \n<li><b>areFooterDividersEnabled()</b></li>
+    \n<li><b>isOpaque()</b></li>
+    \n<li><b>onKeyUp(int <i>keyCode</i>, KeyEvent <i>event</i>)</b></li>
+    \n<li><b>setDivider(Drawable <i>divider</i>)</b></li>
+    \n<li><b>setItemsCanFocus(boolean <i>itemsCanFocus</i>)</b></li></string>
+
+    <string name="spinner_desc">A <b>spinner</b> is a level 1 API and is a view that displays one child at a time and lets the user pick amongst them. The items in the Spinner comes from the <i>Adapter</i> class associated with this view.
+    \n\nSome API methods are:
+    \n<li><b>getBaseline()</b></li>
+    \n<li><b>getPrompt()</b></li>
+    \n<li><b>onClick(DialogInterface <i>dialog</i>, int <i>which</i>)</b></li>
+    \n<li><b>setDropDownWidth(int <i>pixels</i>)</b></li>
+    \n<li><b>setPrompt(CharSequence <i>prompt</i>)</b></li></string>
+
+    <string name="edittext_desc">An <b>EditText</b> is a an overlay over <i>TextView</i> that configures itself to be editable. It is the predefined subclass of TextView that includes rich editing capabilities.
+    \n\nSome API methods are:
+    \n<li><b>getText()</b></li>
+    \n<li><b>setText(CharSequence <i>text</i>)</b></li>
+    \n<li><b>getFreezesText()</b></li>
+    \n<li><b>setSelection(int <i>index</i>)</b></li>
+    \n<li><b>selectAll()</b></li></string>
+
+    <string name="button_desc">A <b>button</b> is a user interface element the user can tap or click to perform an action. There are different types of buttons used in android such as CompoundButton, ToggleButton, RadioButton. Button is a subclass of TextView class and compound button is the subclass of Button class.
+    \n\nThe public API methods are:
+    \n<li><b>getAccessibilityClassName()</b></li>
+    \n<li><b>onResolvePointerIcon(MotionEvent <i>event</i>, int <i>pointerIndex</i>)</b></li>
+    </string>
+
+    <string name="numberpicker_desc">A <b>NumberPicker</b> is a level 11 API that presents that user with a widget to the user so that he/she may select a number from a predefined range.
+    \n\nSome API methods are:
+    \n<li><b>computeScroll()</b></li>
+    \n<li><b>getDisplayedValues()</b></li>
+    \n<li><b>getMaxValue()</b></li>
+    \n<li><b>performLongClick()</b></li>
+    \n<li><b>scrollBy(int <i>x</i>, int <i>y</i>)</b></li></string>
+
+    <string name="average_quiz_score">Average Quiz Score</string>
+
+    <string name="quest_1"><b>Question 1</b>
+    \nWhat is the name of the API that contains the <i>public</i> method <b>getImageTintMode()</b>?\n\n</string>
+    <string name="q1_spinner">Spinner</string>
+    <string name="q1_imageview">ImageView</string>
+    <string name="q1_toast">Toast</string>
+    <string name="q1_edittext">EditText</string>
+
+    <string name="quest_2"><b>Question 2</b>
+    \nWhat API level did <b>NumberPicker</b> start at?\n\n</string>
+    <string name="q2_level_1">Level 1</string>
+    <string name="q2_level_21">Level 21</string>
+    <string name="q2_level_12">Level 12</string>
+    <string name="q2_level_11">Level 11</string>
+
+    <string name="quest_3"><b>Question 3</b>
+    \nWhich method does <b>DatePicker</b> not have?\n\n</string>
+    <string name="q3_getYear">getYear()</string>
+    <string name="q3_getCalendarView">getCalendarView()</string>
+    <string name="q3_getWeek">getWeek()</string>
+    <string name="q3_updateDate">updateDate()</string>
+
+    <string name="quest_4"><b>Question 4</b>
+    \nWhat is a <b>Toast</b> used for?\n\n</string>
+    <string name="q4_op1">Provides simple feedback about operation</string>
+    <string name="q4_op2">Eating with other food</string>
+    <string name="q4_op3">Listing options and allowing user to choose one</string>
+    <string name="q4_op4">Allows user to edit the text</string>
+
+    <string name="quest_5"><b>Question 5</b>
+    \nHow many parameters does the method <b>scrollBy</b> in <i>NumberPicker</i> have?\n\n</string>
+    <string name="q5_op1">0</string>
+    <string name="q5_op2">1</string>
+    <string name="q5_op3">2</string>
+    <string name="q5_op4">3</string>
+
+    <string name="finished_quiz">Finished!</string>
+    <string name="rsearch_paper_1_title">Research Paper 1</string>
+    <string name="researchpaper1_real_title">Permission based Android security: Issues and countermeasures (June, 2014)</string>
+    <string name="research_paper_1_authors">by Zheran Fangac, Weili Hanac, Yingjiu Lib</string>
+    <string name="research_paper_1_extract">This paper, written by three students from China and Singapore, takes a look at the arising security issues, such as coarse granularity of permissions, incompetent permission administration, insufficient permission documentation, over-claim of permissions, permission escalation attack, and TOCTOU (Time of Check to Time of Use) attack. They take a illustrate the relationships between then and talk about existing countermeasures. In addition to this, they also propose some methods the further improve the security of Android.</string>
+    <string name="research_paper_2_title">Research Paper 2</string>
+    <string name="research_paper_2_real_title">Development of teaching material using an Android (February, 2017)</string>
+    <string name="research_paper_2_authors"><![CDATA[Ansari S. Ahmar & Abdul Rahman]]></string>
+    <string name="research_paper_2_summary">The research paper was written by two students of Universitas Negeri Makassar Makassar for the purpose of developing Android-based teaching tools so that students will be more motivated to learn and have a higher quality of learning. It was done using the Plomp development model, which consists of which consists of a preliminary
+        investigation phase, a design phase, a realisation phase, a test, evaluation and revision phase and an implementation phase and the quality of the end product was then tested to ensure the teaching material was valid, practical and effective.</string>
+
 </resources>
