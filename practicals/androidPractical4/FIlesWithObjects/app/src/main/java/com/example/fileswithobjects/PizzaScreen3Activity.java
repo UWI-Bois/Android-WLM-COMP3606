@@ -181,6 +181,7 @@ public class PizzaScreen3Activity extends Activity {
         // navigate through each person and check look for the id - p.getID() == id
         // if found, increment order amount
         // else print toast error and return
+        boolean updated = false;
         String reg = "^[a-zA-z]*$";
         if(persons.size() <= 0) saveFile();
         if(persons.size() <= 0){
@@ -205,6 +206,15 @@ public class PizzaScreen3Activity extends Activity {
         int orders = Integer.parseInt(orderStr);
 
         // at this point we have the personsData and valid numbers for ID and Orders
+        for (Person p :
+                personsData) {
+            if (p.getID() == id) {
+                updated = true;
+                p.addOrders(orders);
+            }
+        }
+
+
 
 
     }
