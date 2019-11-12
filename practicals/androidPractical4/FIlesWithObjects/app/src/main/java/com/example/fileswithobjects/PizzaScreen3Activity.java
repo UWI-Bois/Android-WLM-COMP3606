@@ -2,12 +2,10 @@ package com.example.fileswithobjects;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Size;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,11 +20,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.security.KeyStore;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 
 public class PizzaScreen3Activity extends Activity {
-    private ArrayList<Person> persons;
+    private HashMap<Integer, Person> persons;
     private ArrayList<Person> personsData;
     private int SIZE;
     private static final String FILENAME = "customer_file2";
@@ -38,8 +40,8 @@ public class PizzaScreen3Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pizza_screen3);
 
-        persons = new ArrayList<>(); // data to write to the file
-        personsData = new ArrayList<>(); // data taken from the file
+        persons = new HashMap<Integer, Person>(); // data to write to the file
+        personsData = new ArrayList<>();
 
         initStuff();
     }
@@ -81,87 +83,101 @@ public class PizzaScreen3Activity extends Activity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-       // getMenuInflater().inflate(R.menu.menu_pizza_screen2, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
-        return super.onOptionsItemSelected(item);
-    }
-
     public void exitApp () {
         finish();
     }
-    public void saveFile () {
-        buttonSave.setText("Saving File...");
 
-        persons.add(new Person("Bill", "Smith", 20) );
-        persons.add(new Person("Fred", "Bloggs", 30) );
-        persons.add(new Person("Joe", "Phillips", 40) );
-        persons.add(new Person("Ria", "Maharaj", 50) );
-        persons.add(new Person("Jo", "Jo", 10) );
-        persons.add(null); // to determine eof
-
-        Log.d("MyApp", "Data loaded in array. Printing from array....");
-        printFromArray(persons);
+    public void writeToFileFromMap(HashMap<Integer, Person> list){
         Log.d("MyApp", "Attempting to write to file....");
         //Person per = new Person(fName, lName, ord); //create Person object
         try {
             FileOutputStream fout; // write bytes to a file (from obj in this case)
             fout = openFileOutput(FILENAME, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fout); // object stream to write an object to the file in bytes
-            for (Person p :
-                    persons) {
-                oos.writeObject(p); // write to file
+            for (Map.Entry<Integer, Person> integerPersonEntry : list.entrySet()) {
+                int key = integerPersonEntry.getKey();
+                Person p1 = list.get(key);
+                oos.writeObject(p1);
             }
             oos.close();
             System.out.println("Finished writing person objects to file " + FILENAME);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //
-
-
         Log.d("MyApp", "File write successful.");
-        Toast.makeText(this, "Saved File! el: " + persons.size(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Saved File! el: " + list.size(), Toast.LENGTH_SHORT).show();
         buttonSave.setText("Save File");
     }
 
+
+
+    public void saveFile () {
+        buttonSave.setText("Saving File...");
+        determineSIZE();
+        if(SIZE <= 0) initPersons();
+
+        Log.d("MyApp", "Data loaded in array. Printing from array....");
+        printFromMap(persons);
+
+        writeToFileFromMap(persons);
+
+    }
+
+    private void initPersons() {
+        Person p = new Person("Bill", "Smith", 20);
+        persons.put(p.getID(), p);
+        Person p1 = new Person("Fred", "Bloggs", 30);
+        persons.put(p1.getID(), p1);
+        Person p2 = (new Person("Joe", "Phillips", 40) );
+        persons.put(p2.getID(), p2);
+        Person p3 = (new Person("Ria", "Maharaj", 50) );
+        persons.put(p3.getID(), p3);
+        Person p4 = (new Person("Jo", "Jo", 10) );
+        persons.put(p4.getID(), p4);
+        determineSIZE();
+    }
+
+    public void determineSIZE(){
+        this.SIZE = persons.size();
+        System.out.println("SIZE: " + SIZE);
+    }
+
+    public void printFromMap(HashMap<Integer, Person> p) {
+        // print persons
+        System.out.println("MAP: Size: " + p.size());
+        for (Map.Entry<Integer, Person> integerPersonEntry : p.entrySet()) {
+            int key = integerPersonEntry.getKey();
+            Person p1 = persons.get(key);
+            System.out.println("\n" + p1.toString());
+        }
+    }
     public void printFromArray (ArrayList<Person> p) {
-        // print an arraylist of persons
+        // print persons
+        System.out.println("ARRAY: Size: " + p.size());
         for (Person i :
                 p) {
-            if(i != null)
-                System.out.println("\n" + i.toString());
-            else System.out.println("null, eof?");
+            System.out.println(i.toString());
         }
     }
 
     public void openFile () {
         // grab the data from the file and store it in personsData
-        if(persons.size() <= 0) saveFile();
-        if(persons.size() <= 0) return;
+        determineSIZE();
+        if(SIZE <= 0) saveFile();
+        if(SIZE <= 0) return;
         FileInputStream inputStream; // for reading streams of byte data
+        personsData = new ArrayList<>();
         try{
             inputStream = openFileInput(FILENAME); // open file to read from
             Log.d("MyApp", "getting persons from file for list!!");
             ObjectInputStream ois = new ObjectInputStream(inputStream); // for reading objects from the file
-            Person temp; // temp person obj for reading file
-            temp = (Person)ois.readObject();
-            while(temp != null){
-                personsData.add(temp);
-                temp = (Person)ois.readObject();
+
+            int i = 0;
+            while(i <= SIZE){
+                Object temp; // temp person obj for reading file
+                temp = ois.readObject();
+                personsData.add((Person)temp);
+                i++;
             }
             ois.close();
         } catch (IOException | ClassNotFoundException e) {
@@ -169,9 +185,7 @@ public class PizzaScreen3Activity extends Activity {
         }
         // we should now have personsData without null at the end
         Log.d("MyApp" ,"got persons[]");
-        for(Person p: personsData){
-            Log.d("MyApp", p.toString());
-        }
+        printFromArray(personsData);
     }
 
     public void updateFile () {
@@ -203,20 +217,44 @@ public class PizzaScreen3Activity extends Activity {
         }
 
         int id = Integer.parseInt(idStr);
-        int orders = Integer.parseInt(orderStr);
+        int updateAmt = Integer.parseInt(orderStr);
 
         // at this point we have the personsData and valid numbers for ID and Orders
-        for (Person p :
-                personsData) {
+
+        if(!persons.containsKey(id)){
+            Toast.makeText(this, "cannot find customer!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        for (Map.Entry<Integer, Person> integerPersonEntry : persons.entrySet()) {
+            int key = integerPersonEntry.getKey();
+            Person p = persons.get(key);
             if (p.getID() == id) {
                 updated = true;
-                p.addOrders(orders);
+                p.addOrders(updateAmt);
             }
         }
 
+        if(!updated){
+            Toast.makeText(this, "cannot find customer!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        Toast.makeText(this, "customer updated!", Toast.LENGTH_SHORT).show();
+        printFromMap(persons);
 
+        updateMapFromArray();
+        saveFile();
+        openFile(); // update personsData
+        initList();
 
+    }
+
+    public void updateMapFromArray(){
+        for (Person p :
+                personsData) {
+            p = persons.get(p.getID());
+        }
     }
 
     class EditText_Clicker implements EditText.OnClickListener{
@@ -224,7 +262,7 @@ public class PizzaScreen3Activity extends Activity {
         @Override
         public void onClick(View v) {
             if(v == ID){
-                Toast.makeText(PizzaScreen3Activity.this, "inside id click listener", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(PizzaScreen3Activity.this, "inside id click listener", Toast.LENGTH_SHORT).show();
                 ID.setText("");
                 ID.setInputType(InputType.TYPE_CLASS_NUMBER);
             }
@@ -260,28 +298,18 @@ public class PizzaScreen3Activity extends Activity {
     }
 
     private void initList() {
+        // update the list data from personsData
         System.out.println("initing List");
-        SIZE = personsData.size(); // account for the end of list
+        determineSIZE(); // account for the end of list
         if(SIZE <= 0){
             Toast.makeText(this, "Array Empty! try opening file!", Toast.LENGTH_SHORT).show();
             return;
         }
         int i = 0;
         String[] s = new String[SIZE];
-        for (Person p :
-                persons) {
-            if(p != null){
-                try {
-                    s[i] = p.toString();
-                    System.out.println(s[i]);
-                    i++;
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-            else break;
-
+        while(i < SIZE){
+            s[i] = personsData.get(i).toString();
+            i++;
         }
 
         ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, s);
