@@ -45,6 +45,14 @@ public class Person extends Application implements Serializable {
         orders = orders + change;
     }
 
+    public int getID(){
+        return this.id;
+    }
+
+    public void addOrders(int amt){
+        this.orders += amt;
+    }
+
 
     public String toString() {
         return new String(id + " " + firstName +  " " + lastName + " " +  orders);
