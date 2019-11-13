@@ -35,6 +35,9 @@ public class Quiz extends AppCompatActivity {
     private FileInputStream fis;
     private boolean newFile, newHS;
 
+    // timer stuff
+    private long startTime, elapsedTime, seconds, secondsDisplay, minutes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,8 @@ public class Quiz extends AppCompatActivity {
 
         newHS = false; // check for a new high score
         score = new Score();
+
+        initTimer();
 
         try {
             initFile(); // check to see if the file exists, if it does not, create it, and initialize the score
@@ -51,6 +56,13 @@ public class Quiz extends AppCompatActivity {
         openFile();
         initLayout();
         initUI();
+    }
+
+    private void initTimer() {
+        startTime = System.currentTimeMillis();
+        elapsedTime = System.currentTimeMillis() - startTime;
+        seconds = elapsedTime / 1000;
+        secondsDisplay = seconds % 60;
     }
 
     private void initUI() {
