@@ -15,6 +15,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,15 +36,22 @@ public class PizzaScreen3Activity extends Activity {
     private Button buttonOpen, buttonSave, buttonUpdate, btnLV;
     private EditText fname, lname, newOrders, ID;
     private ListView lv;
+    private File testFile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pizza_screen3);
 
+        testFile = new File("test");
+        System.out.println("test file: " + testFile.exists());
+
         persons = new HashMap<Integer, Person>(); // data to write to the file
         personsData = new ArrayList<>();
 
         initStuff();
+    }
+
+    public void processTestFile(){
     }
 
     public void initStuff(){

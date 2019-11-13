@@ -43,7 +43,6 @@
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/quest_1"
                 android:textAppearance="@style/TextAppearance.AppCompat"
@@ -54,7 +53,6 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 tools:layout_editor_absoluteX="52dp"
                 tools:layout_editor_absoluteY="176dp"
@@ -101,7 +99,6 @@
                 android:id="@+id/textView26"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/quest_2"
                 android:textAppearance="@style/TextAppearance.AppCompat"
@@ -112,7 +109,6 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 tools:layout_editor_absoluteX="114dp"
                 tools:layout_editor_absoluteY="342dp"
@@ -170,7 +166,6 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 tools:layout_editor_absoluteX="118dp"
                 tools:layout_editor_absoluteY="441dp"
@@ -217,7 +212,6 @@
                 android:id="@+id/textView28"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/quest_4"
                 android:textAppearance="@style/TextAppearance.AppCompat"
@@ -226,7 +220,6 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 android:id="@+id/q4Group">
 
@@ -271,16 +264,14 @@
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/quest_5"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:visibility="visible"
-                android:layout_marginStart="12dp"
-                android:layout_marginBottom="4dp"/>
+                android:visibility="visible" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 android:id="@+id/q5Group">
 
@@ -319,6 +310,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/finished_quiz"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtView_yourScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/txtView_highScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+            </LinearLayout>
 
         </LinearLayout>
 
