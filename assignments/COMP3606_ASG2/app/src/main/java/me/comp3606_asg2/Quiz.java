@@ -63,6 +63,7 @@ public class Quiz extends AppCompatActivity {
         elapsedTime = System.currentTimeMillis() - startTime;
         seconds = elapsedTime / 1000;
         secondsDisplay = seconds % 60;
+        System.out.println(secondsDisplay);
     }
 
     private void initUI() {
