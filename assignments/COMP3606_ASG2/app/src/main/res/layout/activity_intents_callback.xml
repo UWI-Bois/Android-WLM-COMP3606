@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/intent_desc"
-            android:textSize="16dp"
+            android:textSize="18sp"
             tools:text="@string/intent_desc" />
 
         <LinearLayout
@@ -59,6 +59,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Go to Calling Screen" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_weight="1"
+                android:text="Total:" />
+
+            <EditText
+                android:id="@+id/edtTxt_total"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:editable="false"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:inputType="number" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

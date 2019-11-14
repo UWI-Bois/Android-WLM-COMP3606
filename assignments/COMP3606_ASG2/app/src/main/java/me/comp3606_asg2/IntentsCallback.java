@@ -10,9 +10,9 @@ import android.widget.Toast;
 public class IntentsCallback extends AppCompatActivity {
 
     private Button btn_screen2;
-    private EditText edtTxt_num1, edtText_num2;
+    private EditText edtTxt_num1, edtTxt_num2, edtTxt_total;
     private Intent intent;
-    private int num1, num2;
+    private int num1, num2, total;
 
 
     @Override
@@ -24,7 +24,19 @@ public class IntentsCallback extends AppCompatActivity {
         btn_screen2.setOnClickListener(new BtnListener());
 
         edtTxt_num1 = findViewById(R.id.editText);
-        edtText_num2 = findViewById(R.id.editText2);
+        edtTxt_num2 = findViewById(R.id.editText2);
+        edtTxt_total = findViewById(R.id.edtTxt_total);
+        getTotal();
+    }
+
+    private void getTotal() {
+        total = 0;
+        total = getIntent().getIntExtra("total", -1);
+        String s = Integer.toString(total);
+        edtTxt_total.setText(s);
+        if(total != -1){
+            Toast.makeText(this, "Got value from calling screen: " + total, Toast.LENGTH_SHORT).show();
+        }
     }
 
     class BtnListener implements Button.OnClickListener{
@@ -39,7 +51,7 @@ public class IntentsCallback extends AppCompatActivity {
                     return;
                 }
                 num1 = Integer.parseInt(s);
-                s = edtText_num2.getText().toString();
+                s = edtTxt_num2.getText().toString();
                 if(s.equals("")){
                     Toast.makeText(IntentsCallback.this, "Please enter num2!!", Toast.LENGTH_SHORT).show();
                     return;

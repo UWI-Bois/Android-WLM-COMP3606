@@ -7,15 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e709119-3152-4806-b11c-813abba948b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/java/me/comp3606_asg2/IntentsCallback_Calc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/res/layout/activity_intents_callback__calc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/java/me/comp3606_asg2/IntentsCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/java/me/comp3606_asg2/IntentsCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/java/me/comp3606_asg2/IntentsCallback_Calc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/java/me/comp3606_asg2/IntentsCallback_Calc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/res/layout/activity_intents_callback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/res/layout/activity_intents_callback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/res/layout/activity_intents_callback__calc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assignments/COMP3606_ASG2/app/src/main/res/layout/activity_intents_callback__calc.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +43,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/me/practical3/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="-187">
               <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
@@ -213,6 +208,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1609808" />
@@ -258,7 +254,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/me/practical3/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="-187">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
