@@ -137,4 +137,11 @@
     <string name="research_paper_2_summary">The research paper was written by two students of Universitas Negeri Makassar Makassar for the purpose of developing Android-based teaching tools so that students will be more motivated to learn and have a higher quality of learning. It was done using the Plomp development model, which consists of which consists of a preliminary
         investigation phase, a design phase, a realisation phase, a test, evaluation and revision phase and an implementation phase and the quality of the end product was then tested to ensure the teaching material was valid, practical and effective.</string>
 
+
+    <string name="intent_desc">
+        This is the first screen for the Intents Callback Activity.\n
+        This Activity will take in 2 numbers on this screen, pass them to another Activity (calling screen) to perform the calculation,\n
+        then that activity will determine the answer and pass it back to the first screen along with a message.
+    </string>
+
 </resources>

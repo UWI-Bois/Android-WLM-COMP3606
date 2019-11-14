@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GUI_NumberPicker"></activity>
+        <activity android:name=".IntentsCallback_Calc"></activity>
+        <activity android:name=".GUI_NumberPicker" />
         <activity android:name=".GUI_Button" />
         <activity android:name=".GUI_EditText" />
         <activity android:name=".GUI_Spinner" />
