@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -18,55 +19,82 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import javax.security.auth.callback.Callback;
+
 public class Quiz extends AppCompatActivity {
 
     // TODO: 13-Nov-19 implement a timer, save the time taken upon succesfully submiting the quiz, save that time in the file
 
-    private TextView txtView_yourScore, txtView_highScore;
+    private TextView txtView_yourScore, txtView_highScore, txtView_timer;
     
     private RadioGroup q1, q2, q3, q4, q5;
     private RadioButton a1, a2, a3, a4, a5;
     private int q1Selection,q2Selection,q3Selection,q4Selection,q5Selection;
-    private Button btn_done;
+    private Button btn_done, btn_reset;
     private Score score;
     private String FILENAME;
     private File file;
     private FileOutputStream fop;
     private FileInputStream fis;
-    private boolean newFile, newHS;
+    private boolean newFile, newHS, newTime, finishedQuiz;
 
     // timer stuff
-    private long startTime, elapsedTime, seconds, secondsDisplay, minutes;
+    private long startTime, seconds, minutes, millis;
+    //runs without a timer by reposting this handler at the end of the runnable
+    private Handler timerHandler;
+    private Runnable timerRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        newHS = false; // check for a new high score
-        score = new Score();
-
-        initTimer();
-
+        initLayout();
+        initUI();
         try {
             initFile(); // check to see if the file exists, if it does not, create it, and initialize the score
         } catch (IOException e) {
             e.printStackTrace();
         }
-        openFile();
-        initLayout();
-        initUI();
+        openFile(); // get the score from the file for comparing
+        initTimer(); // start the timer initially
     }
 
     private void initTimer() {
-        startTime = System.currentTimeMillis();
-        elapsedTime = System.currentTimeMillis() - startTime;
-        seconds = elapsedTime / 1000;
-        secondsDisplay = seconds % 60;
-        System.out.println(secondsDisplay);
+        System.out.println("initTimer() says: ");
+        //runs without a timer by reposting this handler at the end of the runnable
+        timerHandler = new Handler();
+        timerRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                millis = System.currentTimeMillis() - startTime;
+                seconds = (millis / 1000);
+                minutes = seconds / 60;
+                seconds = seconds % 60;
+
+                txtView_timer.setText(String.format("%d:%02d", minutes, seconds));
+
+                timerHandler.postDelayed(this, 500);
+            }
+        };
+        startTime = System.currentTimeMillis(); // start timer
+        timerHandler.postDelayed(timerRunnable, 0);
     }
 
     private void initUI() {
+
+        newHS = false; // check for a new high score
+        newTime = false; // check to see if the person set a better time (lower time)
+        score = new Score();
+        finishedQuiz = false;
+
+        q1.clearCheck();
+        q2.clearCheck();
+        q3.clearCheck();
+        q4.clearCheck();
+        q5.clearCheck();
+
         txtView_yourScore.setText(
                 "Your stats: " + score.getScore()
         );
@@ -125,6 +153,7 @@ public class Quiz extends AppCompatActivity {
         txtView_yourScore.setText("Your Stats: ");
         txtView_highScore = findViewById(R.id.txtView_highScore);
         txtView_highScore.setText("Best Stats: ");
+        txtView_timer = findViewById(R.id.txtView_timer);
 
         // question radio groups
         q1 = findViewById(R.id.q1Group);
@@ -141,6 +170,9 @@ public class Quiz extends AppCompatActivity {
         // submission button
         btn_done = findViewById(R.id.btn_done);
         btn_done.setOnClickListener(new CustomBtnListener());
+        btn_reset = findViewById(R.id.btn_reset);
+        btn_reset.setOnClickListener(new CustomBtnListener());
+        btn_reset.setText("Reset Quiz");
     }
 
     class CustomBtnListener implements Button.OnClickListener{
@@ -150,7 +182,19 @@ public class Quiz extends AppCompatActivity {
             if(v == btn_done){
                 processQuiz();
             }
+            if(v == btn_reset){
+                resetQuiz();
+            }
         }
+    }
+
+    private void resetQuiz() {
+        if(!finishedQuiz){
+            Toast.makeText(this, "Please finish your current attempt first!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        initUI();
+        initTimer();
     }
 
     public void processQuiz(){
@@ -162,9 +206,11 @@ public class Quiz extends AppCompatActivity {
         boolean attemptedAll = false;
         attemptedAll = checkRadioButtons(); // check to make sure they attempted all questions
         if(attemptedAll) {
+            timerHandler.removeCallbacks(timerRunnable); // stop timer
             calcScore();
             writeFile();
             updateUI();
+            finishedQuiz = true;
         }
         else{
             System.out.println("please attempt all questions!");
@@ -182,9 +228,11 @@ public class Quiz extends AppCompatActivity {
         txtView_highScore.setText(
                 "Best stats: " + score.getHighScore() + " - time: " + score.getBestTime()
         );
-        if(newHS){
-            Toast.makeText(this, "NEW HIGH SCORE!", Toast.LENGTH_SHORT).show();
+        if(newHS && newTime){
+            Toast.makeText(this, "NEW HIGH SCORE WITH NEW BEST TIME!", Toast.LENGTH_SHORT).show();
         }
+        else if(newHS) Toast.makeText(this, "NEW HIGH SCORE!", Toast.LENGTH_SHORT).show();
+        else if(newTime) Toast.makeText(this, "NEW BEST TIME!!", Toast.LENGTH_SHORT).show();
     }
 
     private void calcScore() {
@@ -196,11 +244,23 @@ public class Quiz extends AppCompatActivity {
         if(q4Selection == a4.getId()) score++;
         if(q5Selection == a5.getId()) score++;
         this.score.setScore(score);
+        this.score.setTime(seconds);
         this.score.incrementCumulativeScore(score);
         this.score.incrementCount();
-        if(this.score.getScore() >= this.score.getHighScore()){
+        if(this.score.getScore() > this.score.getHighScore()){
             this.score.setHighScore(score);
+            this.score.setBestTime(seconds);
             newHS = true;
+            if(this.score.getTime() < this.score.getBestTime()){
+                newTime = true;
+            }
+        }
+        else if(this.score.getScore() == this.score.getHighScore()){
+            if(this.score.getTime() < this.score.getBestTime()){
+                newTime = true;
+                this.score.setBestTime(seconds);
+                this.score.setHighScore(score);
+            }
         }
         System.out.println("Score: " + score);
     }

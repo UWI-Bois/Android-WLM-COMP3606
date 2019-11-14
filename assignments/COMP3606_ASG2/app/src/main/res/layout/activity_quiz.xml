@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Quiz">
+
+    <TextView
+        android:id="@+id/txtView_timer"
+        android:layout_width="153dp"
+        android:layout_height="56dp"
+        android:text="TextView"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="30sp" />
 
     <ScrollView
         android:id="@+id/scrollView4"
@@ -51,12 +58,12 @@
                 tools:layout_editor_absoluteY="63dp" />
 
             <RadioGroup
+                android:id="@+id/q1Group"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="4dp"
                 tools:layout_editor_absoluteX="52dp"
-                tools:layout_editor_absoluteY="176dp"
-                android:id="@+id/q1Group">
+                tools:layout_editor_absoluteY="176dp">
 
                 <RadioButton
                     android:id="@+id/radioButton"
@@ -107,12 +114,12 @@
                 tools:layout_editor_absoluteY="245dp" />
 
             <RadioGroup
+                android:id="@+id/q2Group"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="4dp"
                 tools:layout_editor_absoluteX="114dp"
-                tools:layout_editor_absoluteY="342dp"
-                android:id="@+id/q2Group">
+                tools:layout_editor_absoluteY="342dp">
 
                 <RadioButton
                     android:id="@+id/radioButton5"
@@ -164,12 +171,12 @@
                 tools:layout_editor_absoluteY="405dp" />
 
             <RadioGroup
+                android:id="@+id/q3Group"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="4dp"
                 tools:layout_editor_absoluteX="118dp"
-                tools:layout_editor_absoluteY="441dp"
-                android:id="@+id/q3Group">
+                tools:layout_editor_absoluteY="441dp">
 
                 <RadioButton
                     android:id="@+id/radioButton9"
@@ -218,10 +225,10 @@
                 android:visibility="visible" />
 
             <RadioGroup
+                android:id="@+id/q4Group"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginBottom="4dp"
-                android:id="@+id/q4Group">
+                android:layout_marginBottom="4dp">
 
                 <RadioButton
                     android:id="@+id/radioButton14"
@@ -270,10 +277,10 @@
                 android:visibility="visible" />
 
             <RadioGroup
+                android:id="@+id/q5Group"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginBottom="4dp"
-                android:id="@+id/q5Group">
+                android:layout_marginBottom="4dp">
 
                 <RadioButton
                     android:id="@+id/radioButton20"
@@ -305,11 +312,24 @@
 
             </RadioGroup>
 
-            <Button
-                android:id="@+id/btn_done"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/finished_quiz"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_done"
+                    android:layout_width="208dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finished_quiz" />
+
+                <Button
+                    android:id="@+id/btn_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Button" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

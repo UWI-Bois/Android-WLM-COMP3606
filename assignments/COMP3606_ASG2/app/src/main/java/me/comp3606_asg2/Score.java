@@ -1,7 +1,8 @@
 package me.comp3606_asg2;
 
 public class Score {
-    private int score, highScore, time, bestTime, count, cumulativeScore;
+    private int score, highScore, count, cumulativeScore;
+    private long time, bestTime; // time in seconds
 
     public Score(){
         this.highScore = 0;
@@ -30,7 +31,7 @@ public class Score {
         this.count++;
     }
 
-    public void setBestTime(int bestTime) {
+    public void setBestTime(long bestTime) {
         this.bestTime = bestTime;
     }
 
@@ -42,11 +43,11 @@ public class Score {
         this.score = score;
     }
 
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
-    public int getBestTime() {
+    public long getBestTime() {
         return bestTime;
     }
 
@@ -58,7 +59,7 @@ public class Score {
         return score;
     }
 
-    public int getTime() {
+    public long getTime() {
         return time;
     }
 
