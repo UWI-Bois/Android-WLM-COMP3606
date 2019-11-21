@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout android:orientation="vertical" android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/linearLayout1" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/textViewPhoneNo"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Enter Destination Phone Number : "/>
+
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:id="@+id/mPhoneNo"  />
+
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/textViewSMS"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Please Enter SMS Message : "/>
+
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:id="@+id/mSMSText"
+        android:gravity="top" android:lines="5"
+        android:inputType="textMultiLine"/>
+
+    <Button android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:id="@+id/sendButton"
+        android:text="Send SMS"/>
+
+</LinearLayout>
