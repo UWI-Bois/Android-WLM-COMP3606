@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">COMP3606_Practical5</string>
+    <string name="riddle">Riddle</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="_15555215556">+15555215556</string>
+    <string name="send_riddle">Send Riddle</string>
+    <string name="solution">Solution</string>
+    <color name="white">#FFFFFF</color>
+</resources>
